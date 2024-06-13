@@ -13,7 +13,6 @@
       <div class="header__container">
         <h1 class="header__logo">
           <img src="./coding-apps-websites-dinosaur-error.png" alt="Logo" lass="header">
-          <span class="tooltip" id="tooltip" aria-describedby="tooltip">Hello, I'm a dinosaur! Grrrr!</span>
         </h1>
         <nav class="header__nav">
           <a href="#genetic-transcription" class="nav__link">Genetic Transcription</a>
@@ -35,22 +34,22 @@
             <label for="dna-input" class="hidden">Enter DNA Sequence</label>
             <input type="text" id="dna-input" class="input-container__input">
             <div class="section__button-container">
-              <button onclick="dnaTranscriber.processInput()" class="input-container__button">
+              <button onclick="window.viewController.processDnaInput()" class="input-container__button">
                 Convert to RNA
               </button>
-              <button onclick="dnaTranscriber.reset()" class="input-container__button">Reset</button>
+              <button onclick="window.viewController.resetDnaInput()" class="input-container__button">Reset</button>
             </div>
           </div>
           <div class="section__result-container">
             <div class="result-container__output-wrapper">
-              <spanp id="rna-output" class="result-container__output"></spanp>
+              <span id="rna-output" class="result-container__output"></span>
               <button id="copy-rna-output" class="copy-button hidden"><img src="./copy.png" alt="Copy result" width="20" height="20"></button>
             </div>
             <p id="dna-error" class="result-container__error"></p>
           </div>
         </div>
       </section>
-
+  
       <section id="palindrome" class="section">
         <div class="section__container">
           <h2 class="section__title">Palindrome</h2>
@@ -62,10 +61,10 @@
             <label for="palindrome-input" class="hidden">Enter String</label>
             <input type="text" id="palindrome-input" class="section__input">
             <div class="section__button-container">
-              <button onclick="palindromeChecker.checkPalindrome()" class="section__button">
+              <button onclick="window.viewController.checkPalindrome()" class="section__button">
                 Is it palindrome?
               </button>
-              <button onclick="palindromeChecker.resetPalindrome()" class="section__button">
+              <button onclick="window.viewController.resetPalindrome()" class="section__button">
                 Reset
               </button>
             </div>
@@ -79,26 +78,29 @@
           </div>
         </div>
       </section>
-
+  
       <section id="substring" class="section">
         <div class="section__container">
           <h2 class="section__title">Substring</h2>
           <p class="section__description">
             Enter a string from which to extract a substring.<br>For example, if you
             enter "Hello, world!" without specifying start and length, the result
-            will be "Hello, world!".
+            will be "Hello, world!".<br>
+            If you enter "Hello, world!" with a start position of 7, the result will be "world!"
           </p>
           <div class="section__input-container">
             <label for="substring-input" class="hidden">Enter String</label>
             <input type="text" id="substring-input" class="section__input">
+            <label for="start-input" class="hidden">Enter Start Position</label>
+            <input type="number" id="start-input" class="section__input" min="0">
             <div class="section__button-container">
-              <button onclick="substringExtractor.getSubstring()" class="section__button">
+              <button onclick="window.viewController.getSubstring()" class="section__button">
                 Get substring
               </button>
-              <button onclick="substringExtractor.resetSubstring()" class="section__button">
+              <button onclick="window.viewController.resetSubstring()" class="section__button">
                 Reset
               </button>
-            </div>
+            </div>          
           </div>
           <div class="section__result-container">
             <div class="result-container__output-wrapper">
@@ -116,6 +118,7 @@
     </footer>
 
     <script type="module" src="index.js"></script>
+    <script type="module" src="viewController.js"></script>
     <script type="module" src="geneticConvertation.js"></script>
     <script type="module" src="palindrome.js"></script>
     <script type="module" src="substring.js"></script>

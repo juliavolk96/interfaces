@@ -1,5 +1,5 @@
 class SubstringExtractor {
-  substr(str, start = 0, length) {
+  getSubstring(str, start = 0, length) {
     if (str == null) {
       throw new Error('Argument cannot be null or undefined');
     }
@@ -37,36 +37,6 @@ class SubstringExtractor {
     }
 
     return result;
-  }
-
-  getSubstring() {
-    const substingInput = document.getElementById('substring-input').value;
-    const copyButton = document.getElementById('copy-substring-output');
-    if (substingInput === '') {
-      document.getElementById('substring-error').innerText = 'Please enter a string.';
-      return;
-    }
-    try {
-      const substingOutput = this.substr(substingInput);
-      document.getElementById('substring-output').innerText = substingOutput;
-      copyButton.style.display = 'inline';
-      document.getElementById('copy-substring-output').classList.remove('hidden');
-      document.getElementById('substring-error').innerText = '';
-      localStorage.setItem('substringOutput', substingOutput);
-      localStorage.setItem('substringInput', substingInput);
-    } catch (error) {
-      document.getElementById('substring-error').innerText = error.message;
-      copyButton.style.display = 'none'; 
-    }
-  }
-
-  resetSubstring() {
-    document.getElementById('substring-input').value = '';
-    document.getElementById('substring-output').innerText = '';
-    document.getElementById('copy-substring-output').classList.add('hidden');
-    document.getElementById('substring-error').innerText = '';
-    localStorage.setItem('substringOutput', '');
-    localStorage.setItem('substringInput', '');
   }
 }
 
